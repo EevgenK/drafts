@@ -1,29 +1,62 @@
-.back-link {
-  position: relative;
-  display: inline-block;
-  padding: 4px 8px;
-  margin-top: 32px;
-  border: 1px solid;
-  border-radius: 8px;
+.tittle-hidden {
+  text-align: center;
+  display: none;
 }
-.back-link::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 16px;
-  height: 16px;
 
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z'/%3E%3C/svg%3E");
-  transition: 300ms ease-in;
-  transition-property: opacity;
-  opacity: 0;
-  animation: slide 500ms linear infinite alternate-reverse both;
-  animation-play-state: paused;
+.live-block {
+  top: 75%;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background-color: var(--light-grey);
+  color: var(--accet-green);
+  padding: 40px 0px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 133%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  display: flex;
+  overflow: hidden;
 }
-.back-link:hover::before {
-  opacity: 1;
-  animation-play-state: running;
+.dark-running-theme {
+  background-color: var(--charcoal-dt);
+}
+
+.rnunning-list {
+  animation: running-text 5s ease-in-out infinite;
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  white-space: nowrap;
+  min-width: 100%;
+}
+.rnunning-item {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.rnunning-item::before {
+  content: '';
+  display: block;
+  border-radius: 2px;
+  width: 8px;
+  height: 8px;
+  transform: rotate(-180deg);
+  transition: background 0.3s;
+}
+.light-running-theme > .rnunning-list > .rnunning-item::before {
+  background: var(--black);
+}
+.dark-running-theme > .rnunning-list > .rnunning-item::before {
+  background: var(--white);
+}
+
+@keyframes running-text {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }
