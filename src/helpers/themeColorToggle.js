@@ -19,8 +19,10 @@ const themeColorToggle = () => {
   toggleButton.classList.toggle('active-btn');
   body.classList.toggle('light-theme');
   body.classList.toggle('dark-theme');
-  runningElems.classList.toggle('light-running-theme');
+
   runningElems.classList.toggle('dark-running-theme');
+  runningElems.classList.toggle('light-running-theme');
+
   heroTextBox.classList.toggle('dark-box');
   heroTextBox.classList.toggle('light-box');
   orderButton.classList.toggle('dark-theme-btn');

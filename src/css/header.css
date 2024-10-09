@@ -100,11 +100,11 @@
 }
 
 /* MAIN */
-
-.hero-box {
+.hero {
   min-width: 320px;
   max-width: 1280px;
-  max-width: 1280px;
+}
+.hero-box {
   padding: 0 32px 40px 32px;
   position: relative;
   display: flex;
