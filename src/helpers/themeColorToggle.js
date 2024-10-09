@@ -3,7 +3,6 @@ const runningElems = document.querySelector('.live-block');
 const heroTextBox = document.querySelector('.hero-text-box');
 const orderButton = document.querySelector('.order-button');
 const body = document.body;
-console.log(localStorage.getItem('theme'));
 
 if (localStorage.getItem('theme') === 'dark') {
   body.classList.add('dark-theme');
