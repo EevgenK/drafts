@@ -4,34 +4,32 @@ const heroTextBox = document.querySelector('.hero-text-box');
 const orderButton = document.querySelector('.order-button');
 const body = document.body;
 
-if (localStorage.getItem('theme') === 'dark') {
-  body.classList.add('dark-theme');
-  runningElems.classList.add('dark-running-theme');
-  heroTextBox.classList.add('dark-box');
-  orderButton.classList.add('dark-theme-btn');
-}
-body.classList.add('light-theme');
-runningElems.classList.add('light-running-theme');
-heroTextBox.classList.add('light-box');
-orderButton.classList.add('light-theme-btn');
+const addClassList = (element, darkClass, lightClass) =>
+  localStorage.getItem('theme') === 'dark'
+    ? element.classList.add(darkClass)
+    : element.classList.add(lightClass);
+
+const toggleClassList = (element, darkClass, lightClass) => {
+  element.classList.toggle(darkClass);
+  element.classList.toggle(lightClass);
+};
 
 const themeColorToggle = () => {
   toggleButton.classList.toggle('active-btn');
-  body.classList.toggle('light-theme');
-  body.classList.toggle('dark-theme');
-
-  runningElems.classList.toggle('dark-running-theme');
-  runningElems.classList.toggle('light-running-theme');
-
-  heroTextBox.classList.toggle('dark-box');
-  heroTextBox.classList.toggle('light-box');
-  orderButton.classList.toggle('dark-theme-btn');
-  orderButton.classList.toggle('light-theme-btn');
+  toggleClassList(body, 'dark-theme', 'light-theme');
+  toggleClassList(runningElems, 'dark-running-theme', 'light-running-theme');
+  toggleClassList(heroTextBox, 'dark-box', 'light-box');
+  toggleClassList(orderButton, 'dark-theme-btn', 'light-theme-btn');
 
   body.classList.contains('dark-theme')
     ? localStorage.setItem('theme', 'dark')
     : localStorage.setItem('theme', 'light');
 };
+
+addClassList(body, 'dark-theme', 'light-theme');
+addClassList(runningElems, 'dark-running-theme', 'light-running-theme');
+addClassList(heroTextBox, 'dark-box', 'light-box');
+addClassList(orderButton, 'dark-theme-btn', 'light-theme-btn');
 
 toggleButton.addEventListener('click', themeColorToggle);
 export default themeColorToggle;
